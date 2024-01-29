@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d4dupixr5lj4u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af6r3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb8f8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcogj"]
+bg_color = Color(0.517647, 0.47451, 0.517647, 0.6)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg45h"]
+bg_color = Color(1, 0.356863, 0.584314, 1)
+border_color = Color(0.839216, 0.839216, 0.839216, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[resource]
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 18
+Button/styles/disabled = SubResource("StyleBoxFlat_af6r3")
+Panel/styles/panel = SubResource("StyleBoxFlat_eb8f8")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_jcogj")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_jg45h")

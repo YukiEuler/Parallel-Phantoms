@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtaddg288q0cd"]
+
+[ext_resource type="Theme" uid="uid://bppcrxufiwxfr" path="res://UI/Saves/MainMenu.tres" id="1_3cn1o"]
+[ext_resource type="Script" path="res://UI/Scnee/DeadScreen/Script/dead_screen.gd" id="2_vmwyv"]
+[ext_resource type="Texture2D" uid="uid://dgsh811a4gsn2" path="res://UI/Icon/Reload.png" id="2_wtmn8"]
+[ext_resource type="Texture2D" uid="uid://djw5qnxy5b4xc" path="res://UI/Icon/Back.png" id="4_7bqnp"]
+
+[node name="DeadScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3cn1o")
+script = ExtResource("2_vmwyv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.603922, 0.109804, 0.247059, 0.584314)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -129.0
+offset_right = 143.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -258.5
+offset_right = 258.5
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "YOU ARE DEAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.5
+offset_top = -192.0
+offset_right = 94.5
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+vertical = true
+
+[node name="VSeparator" type="VSeparator" parent="Control/Menu"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="Control/Menu"]
+layout_mode = 2
+theme = ExtResource("1_3cn1o")
+text = "Restart"
+icon = ExtResource("2_wtmn8")
+
+[node name="VSeparator3" type="VSeparator" parent="Control/Menu"]
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="Control/Menu"]
+layout_mode = 2
+theme = ExtResource("1_3cn1o")
+text = "Main Menu
+"
+icon = ExtResource("4_7bqnp")
+
+[connection signal="pressed" from="Control/Menu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/Menu/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://061xruw4ba4b"]
+
+[ext_resource type="Script" path="res://Interactible/Item/Health/Script/health.gd" id="1_t0f60"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wy8t"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ly4m"]
+albedo_color = Color(0, 0.8, 0.431373, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rcfty"]
+material = SubResource("StandardMaterial3D_8ly4m")
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oadqr"]
+size = Vector3(0.27, 0.27, 0.27)
+
+[node name="Health" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+script = ExtResource("1_t0f60")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4wy8t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rcfty")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_oadqr")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

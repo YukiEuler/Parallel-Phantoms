@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkuy8xlou7s54"]
+
+[ext_resource type="Script" path="res://UI/Scnee/Pause/Script/Pause.gd" id="1_3nieh"]
+[ext_resource type="Texture2D" uid="uid://cm0h0663bj6qr" path="res://icon.svg" id="1_mfh4q"]
+[ext_resource type="Theme" uid="uid://bppcrxufiwxfr" path="res://UI/Saves/MainMenu.tres" id="1_t266h"]
+[ext_resource type="Texture2D" uid="uid://dwatv8f2dt7cj" path="res://UI/Icon/Play.png" id="4_8axf1"]
+[ext_resource type="Texture2D" uid="uid://dgsh811a4gsn2" path="res://UI/Icon/Reload.png" id="5_npvlw"]
+[ext_resource type="Texture2D" uid="uid://dbfsg1xgl3c73" path="res://UI/Icon/Gear.png" id="6_ip1pl"]
+[ext_resource type="Texture2D" uid="uid://djw5qnxy5b4xc" path="res://UI/Icon/Back.png" id="7_8qja6"]
+[ext_resource type="PackedScene" uid="uid://beb0sl0pv0vin" path="res://UI/Scnee/Setting/Setting.tscn" id="8_ann7g"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3nieh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.858824, 0.517647, 0.85098, 0.117647)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -157.5
+offset_right = 143.0
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("1_mfh4q")
+
+[node name="Menu" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.5
+offset_top = -192.0
+offset_right = 94.5
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+vertical = true
+
+[node name="Resume" type="Button" parent="Control/Menu"]
+layout_mode = 2
+theme = ExtResource("1_t266h")
+text = "Resume"
+icon = ExtResource("4_8axf1")
+
+[node name="VSeparator" type="VSeparator" parent="Control/Menu"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="Control/Menu"]
+layout_mode = 2
+theme = ExtResource("1_t266h")
+text = "Restart"
+icon = ExtResource("5_npvlw")
+
+[node name="VSeparator2" type="VSeparator" parent="Control/Menu"]
+layout_mode = 2
+
+[node name="Setting" type="Button" parent="Control/Menu"]
+layout_mode = 2
+theme = ExtResource("1_t266h")
+text = "Setting
+"
+icon = ExtResource("6_ip1pl")
+
+[node name="VSeparator3" type="VSeparator" parent="Control/Menu"]
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="Control/Menu"]
+layout_mode = 2
+theme = ExtResource("1_t266h")
+text = "Main Menu
+"
+icon = ExtResource("7_8qja6")
+
+[node name="Setting" parent="." instance=ExtResource("8_ann7g")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Control/Menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/Menu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/Menu/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Control/Menu/MainMenu" to="." method="_on_main_menu_pressed"]

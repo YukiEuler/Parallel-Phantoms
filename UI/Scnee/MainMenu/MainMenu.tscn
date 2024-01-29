@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddiy00g3hk2kw"]
+
+[ext_resource type="Theme" uid="uid://bppcrxufiwxfr" path="res://UI/Saves/MainMenu.tres" id="1_m8t0y"]
+[ext_resource type="Script" path="res://UI/Scnee/MainMenu/Script/MainMenu.gd" id="1_owkpd"]
+[ext_resource type="PackedScene" uid="uid://beb0sl0pv0vin" path="res://UI/Scnee/Setting/Setting.tscn" id="2_t0657"]
+[ext_resource type="Texture2D" uid="uid://dwatv8f2dt7cj" path="res://UI/Icon/Play.png" id="3_axag5"]
+[ext_resource type="Texture2D" uid="uid://dbfsg1xgl3c73" path="res://UI/Icon/Gear.png" id="4_5lea8"]
+[ext_resource type="Texture2D" uid="uid://b214e633ws7xo" path="res://UI/Icon/Exit.png" id="5_e37o3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_owkpd")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="BoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 104.0
+offset_top = -96.0
+offset_right = 288.0
+offset_bottom = 96.0
+grow_vertical = 2
+alignment = 1
+vertical = true
+
+[node name="Play" type="Button" parent="MainMenu/Menu"]
+layout_mode = 2
+theme = ExtResource("1_m8t0y")
+text = "Play"
+icon = ExtResource("3_axag5")
+
+[node name="Margin" type="Label" parent="MainMenu/Menu"]
+layout_mode = 2
+
+[node name="Setting" type="Button" parent="MainMenu/Menu"]
+layout_mode = 2
+theme = ExtResource("1_m8t0y")
+text = "Setting
+"
+icon = ExtResource("4_5lea8")
+
+[node name="Margin2" type="Label" parent="MainMenu/Menu"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="MainMenu/Menu"]
+layout_mode = 2
+theme = ExtResource("1_m8t0y")
+text = "Exit
+"
+icon = ExtResource("5_e37o3")
+
+[node name="Setting" parent="." instance=ExtResource("2_t0657")]
+visible = false
+layout_mode = 1
+offset_right = -0.000244141
+
+[connection signal="pressed" from="MainMenu/Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/Exit" to="." method="_on_exit_pressed"]

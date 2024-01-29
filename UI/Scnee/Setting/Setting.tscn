@@ -1,0 +1,295 @@
+[gd_scene load_steps=6 format=3 uid="uid://beb0sl0pv0vin"]
+
+[ext_resource type="Script" path="res://UI/Scnee/Setting/Script/Setting.gd" id="1_mf4uv"]
+[ext_resource type="Theme" uid="uid://c6tgmg6nrodq3" path="res://UI/Saves/Setting.tres" id="1_vr7ku"]
+[ext_resource type="Script" path="res://UI/Scnee/Setting/Script/Graphics.gd" id="2_cv3ki"]
+[ext_resource type="Texture2D" uid="uid://djw5qnxy5b4xc" path="res://UI/Icon/Back.png" id="3_0f1qw"]
+[ext_resource type="Script" path="res://UI/Scnee/Setting/Script/Audio.gd" id="4_rrhg4"]
+
+[node name="Setting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mf4uv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.258824, 0.25098, 0.482353)
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -157.0
+offset_right = 287.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_vr7ku")
+tab_alignment = 1
+
+[node name="Graphics" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("2_cv3ki")
+
+[node name="BoxContainer" type="BoxContainer" parent="TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -229.0
+offset_right = 229.0
+offset_bottom = 204.0
+grow_horizontal = 2
+alignment = 2
+vertical = true
+
+[node name="Resolution" type="Button" parent="TabContainer/Graphics/BoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "Resolution"
+alignment = 0
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Graphics/BoxContainer/Resolution"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="DisplayMode" type="Button" parent="TabContainer/Graphics/BoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "Display"
+alignment = 0
+
+[node name="DisplayOption" type="CheckButton" parent="TabContainer/Graphics/BoxContainer/DisplayMode"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_vr7ku")
+text = "Windowed
+"
+flat = true
+alignment = 2
+
+[node name="LimitFPS" type="Button" parent="TabContainer/Graphics/BoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "Limit FPS"
+alignment = 0
+
+[node name="LimitFPSOption" type="OptionButton" parent="TabContainer/Graphics/BoxContainer/LimitFPS"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Vsinc2" type="Button" parent="TabContainer/Graphics/BoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "vsync"
+alignment = 0
+
+[node name="DisplayOption" type="CheckButton" parent="TabContainer/Graphics/BoxContainer/Vsinc2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -21.5
+offset_bottom = 21.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_vr7ku")
+text = "
+"
+flat = true
+alignment = 2
+
+[node name="Audio" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("4_rrhg4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -228.0
+offset_right = 228.0
+offset_bottom = 157.0
+grow_horizontal = 2
+alignment = 2
+
+[node name="Master" type="Button" parent="TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "Master"
+alignment = 0
+
+[node name="MasterSlider" type="HSlider" parent="TabContainer/Audio/VBoxContainer/Master"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -7.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_vr7ku")
+value = 100.0
+
+[node name="Music" type="Button" parent="TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "Music"
+alignment = 0
+
+[node name="MusicSlider" type="HSlider" parent="TabContainer/Audio/VBoxContainer/Music"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -7.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_vr7ku")
+value = 100.0
+
+[node name="SoundEffect" type="Button" parent="TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "Sound Effect"
+alignment = 0
+
+[node name="SoundEffectSlider" type="HSlider" parent="TabContainer/Audio/VBoxContainer/SoundEffect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -7.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_vr7ku")
+value = 100.0
+
+[node name="Gameplay" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="BoxContainer2" type="BoxContainer" parent="TabContainer/Gameplay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_right = 137.0
+offset_bottom = 88.0
+grow_horizontal = 2
+alignment = 1
+vertical = true
+
+[node name="DisplayMode" type="Button" parent="TabContainer/Gameplay/BoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_vr7ku")
+text = "Show FPS"
+alignment = 0
+
+[node name="DisplayOption" type="CheckButton" parent="TabContainer/Gameplay/BoxContainer2/DisplayMode"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_vr7ku")
+text = "
+"
+flat = true
+alignment = 2
+
+[node name="NavBar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_vr7ku")
+
+[node name="Button" type="Button" parent="NavBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -21.0
+offset_right = 136.0
+offset_bottom = 22.0
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "Back"
+icon = ExtResource("3_0f1qw")
+
+[connection signal="item_selected" from="TabContainer/Graphics/BoxContainer/Resolution/OptionButton" to="TabContainer/Graphics" method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="TabContainer/Graphics/BoxContainer/LimitFPS/LimitFPSOption" to="TabContainer/Graphics" method="_on_limit_fps_option_item_selected"]
+[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/Master/MasterSlider" to="TabContainer/Audio" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/Music/MusicSlider" to="TabContainer/Audio" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/SoundEffect/SoundEffectSlider" to="TabContainer/Audio" method="_on_sound_effect_slider_value_changed"]
+[connection signal="pressed" from="NavBar/Button" to="." method="_on_button_pressed"]
