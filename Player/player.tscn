@@ -202,6 +202,7 @@ libraries = {
 
 [node name="AttackArea" type="Area3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.630191, 0.651983)
+visible = false
 wind_force_magnitude = 4.848
 wind_attenuation_factor = 1.545
 script = ExtResource("3_wtuvs")

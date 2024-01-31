@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwf6x0rm1yrkv"]
+[gd_scene load_steps=10 format=3 uid="uid://bwf6x0rm1yrkv"]
 
 [ext_resource type="PackedScene" uid="uid://b3chy44tomj1i" path="res://Interactible/test/DamageTest/damage_test.tscn" id="1_485xg"]
 [ext_resource type="PackedScene" uid="uid://oe0gp1n534l1" path="res://Enemy/EnemyTestDummy/enemy_test_dummy.tscn" id="1_bagyf"]
 [ext_resource type="PackedScene" uid="uid://061xruw4ba4b" path="res://Interactible/Item/Health/health.tscn" id="1_lbfi1"]
 [ext_resource type="PackedScene" uid="uid://djrawxaxyxpt5" path="res://Player/player.tscn" id="1_pc2bb"]
+[ext_resource type="PackedScene" uid="uid://cgthpdqxdgnut" path="res://Enemy/Banaspati/banaspati.tscn" id="2_ximn5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlthg"]
 albedo_color = Color(0.262745, 0.262745, 0.262745, 1)
@@ -30,6 +31,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -5)
 
 [node name="EnemyTestDummy3" parent="." instance=ExtResource("1_bagyf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -5)
+
+[node name="Banaspati" parent="." groups=["Enemy"] instance=ExtResource("2_ximn5")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.7, -5)
+
+[node name="Banaspati2" parent="." groups=["Enemy"] instance=ExtResource("2_ximn5")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1, 0.7, -5)
+
+[node name="Banaspati3" parent="." groups=["Enemy"] instance=ExtResource("2_ximn5")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2, 0.7, -5)
 
 [node name="Health" parent="." instance=ExtResource("1_lbfi1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.125, 0)

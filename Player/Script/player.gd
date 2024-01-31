@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var health = 3
-var SPEED
+var SPEED = 0.0
 
 var off_menu: bool = true
 const NORMAL_SPEED = 5.0
@@ -14,6 +14,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var health_bar = $PlayerUI/HealthBar
 @onready var player_UI = $PlayerUI
 @onready var model = $Model
+
+var knock_time = 0
+var knock_dir = Vector3.ZERO
 
 func  _ready():
 	SPEED = NORMAL_SPEED
@@ -48,13 +51,24 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	if knock_time > 0:
+		if knock_dir == Vector3.ZERO:
+			knock_dir = -direction
+		direction = knock_dir
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	model_rotation(delta)
+		
+	if knock_time <= 0:
+		knock_dir = Vector3.ZERO
+		model_rotation(delta)
+	else:
+		knock_time -= 1
+		
 	move_and_slide()
 
 func model_rotation(delta):

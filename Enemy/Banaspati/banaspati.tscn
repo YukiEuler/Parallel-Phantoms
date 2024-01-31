@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgthpdqxdgnut"]
+
+[ext_resource type="Script" path="res://Enemy/Banaspati/Script/banaspati.gd" id="1_f6kof"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k6nh4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ufqo"]
+albedo_color = Color(0.945098, 0.117647, 0.0941176, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qlms2"]
+material = SubResource("StandardMaterial3D_1ufqo")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hr5qo"]
+radius = 0.531728
+
+[node name="Banaspati" type="CharacterBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.7, 0)
+script = ExtResource("1_f6kof")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_k6nh4")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="MeshInstanceDebug3D" type="MeshInstance3D" parent="Model"]
+mesh = SubResource("SphereMesh_qlms2")
+
+[node name="Area3D" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Area3D"]
+shape = SubResource("SphereShape3D_hr5qo")
+
+[connection signal="body_entered" from="Model/Area3D" to="." method="_on_player_body_entered"]
