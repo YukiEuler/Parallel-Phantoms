@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://blywdv4ohek8j"]
+
+[ext_resource type="Script" path="res://Enemy/Banaspati/Kuntilanak/Script/Kuntilanak.gd" id="1_62vjc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kmtc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avy0h"]
+albedo_color = Color(0.14902, 0, 0.647059, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kf717"]
+material = SubResource("StandardMaterial3D_avy0h")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c2r0c"]
+radius = 0.529632
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kf55i"]
+radius = 1.00655
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5fq3"]
+albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aipft"]
+material = SubResource("StandardMaterial3D_t5fq3")
+size = Vector3(0.285, 0.1, 0.125)
+
+[node name="Kuntilanak" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_62vjc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_kmtc5")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+mesh = SubResource("CapsuleMesh_kf717")
+
+[node name="Area3D" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Area3D"]
+shape = SubResource("CapsuleShape3D_c2r0c")
+
+[node name="Chase" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Chase"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_kf55i")
+
+[node name="Eye" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041509, 0.39815, 0.437384)
+mesh = SubResource("BoxMesh_aipft")
+
+[connection signal="body_entered" from="Model/Area3D" to="." method="_on_player_body_entered"]
+[connection signal="body_entered" from="Model/Chase" to="." method="_is_chase_player"]
+[connection signal="body_exited" from="Model/Chase" to="." method="_is_not_chase_player"]

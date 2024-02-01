@@ -43,6 +43,8 @@ func _input(event):
 		off_menu = true
 
 func _physics_process(delta):
+	if off_menu:
+		pass
 	# Add Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -68,6 +70,7 @@ func _physics_process(delta):
 		model_rotation(delta)
 	else:
 		knock_time -= 1
+		velocity *= 1.5
 		
 	move_and_slide()
 

@@ -7,18 +7,18 @@
 [ext_resource type="Script" path="res://Player/Script/AttackArea.gd" id="3_wtuvs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mw1u8"]
-radius = 0.25
+radius = 0.269905
 height = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_m0niy"]
 radius = 0.25
 height = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ef4ed"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7iws"]
 albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v37d0"]
-material = SubResource("StandardMaterial3D_ef4ed")
+material = SubResource("StandardMaterial3D_q7iws")
 size = Vector3(0.285, 0.1, 0.125)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bobyk"]
