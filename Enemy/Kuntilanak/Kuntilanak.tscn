@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://blywdv4ohek8j"]
 
-[ext_resource type="Script" path="res://Enemy/Banaspati/Kuntilanak/Script/Kuntilanak.gd" id="1_62vjc"]
+[ext_resource type="Script" path="res://Enemy/Kuntilanak/Script/Kuntilanak.gd" id="1_62vjc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kmtc5"]
 

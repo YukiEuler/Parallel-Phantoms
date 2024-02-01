@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://061xruw4ba4b" path="res://Interactible/Item/Health/health.tscn" id="1_lbfi1"]
 [ext_resource type="PackedScene" uid="uid://djrawxaxyxpt5" path="res://Player/player.tscn" id="1_pc2bb"]
 [ext_resource type="PackedScene" uid="uid://cgthpdqxdgnut" path="res://Enemy/Banaspati/banaspati.tscn" id="2_ximn5"]
-[ext_resource type="PackedScene" uid="uid://blywdv4ohek8j" path="res://Enemy/Banaspati/Kuntilanak/Kuntilanak.tscn" id="3_uhuy1"]
+[ext_resource type="PackedScene" uid="uid://blywdv4ohek8j" path="res://Enemy/Kuntilanak/Kuntilanak.tscn" id="3_uhuy1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlthg"]
 albedo_color = Color(0.262745, 0.262745, 0.262745, 1)
