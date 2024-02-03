@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjnbuhyp5l4ic"]
+
+[ext_resource type="Script" path="res://Enemy/Genderuwo/Script/Genderuwo.gd" id="1_kuitu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lu6v7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_33vj7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7iws"]
+albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v68vn"]
+material = SubResource("StandardMaterial3D_q7iws")
+size = Vector3(0.285, 0.1, 0.125)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a47n1"]
+radius = 5.63401
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gt5gb"]
+radius = 0.551737
+
+[node name="Genderuwo" type="CharacterBody3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+script = ExtResource("1_kuitu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_lu6v7")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+mesh = SubResource("CapsuleMesh_33vj7")
+
+[node name="Eye" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0207931, 0.451599, 0.465054)
+mesh = SubResource("BoxMesh_v68vn")
+
+[node name="TauntArea" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/TauntArea"]
+shape = SubResource("SphereShape3D_a47n1")
+
+[node name="Body" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Body"]
+shape = SubResource("CapsuleShape3D_gt5gb")
+
+[connection signal="body_entered" from="Model/TauntArea" to="." method="_is_chase_player"]
+[connection signal="body_exited" from="Model/TauntArea" to="." method="_is_not_chase_player"]
+[connection signal="body_entered" from="Model/Body" to="." method="_on_player_body_entered"]

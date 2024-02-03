@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnnysv810sbnn"]
+
+[ext_resource type="Script" path="res://Enemy/Genderuwo/Script/KnockArea.gd" id="1_huqp3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cnxcx"]
+size = Vector3(1, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4nur"]
+size = Vector3(1, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxi4n"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6grf"]
+material = SubResource("StandardMaterial3D_vxi4n")
+size = Vector3(1, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qvovd"]
+size = Vector3(1.1, 1.1, 5.1)
+
+[node name="GenderuwoAttack" type="StaticBody3D"]
+script = ExtResource("1_huqp3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3)
+shape = SubResource("BoxShape3D_cnxcx")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="Attack" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3)
+shape = SubResource("BoxShape3D_g4nur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/Attack"]
+mesh = SubResource("BoxMesh_d6grf")
+
+[node name="KnockArea" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3)
+shape = SubResource("BoxShape3D_qvovd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_player_body_entered"]

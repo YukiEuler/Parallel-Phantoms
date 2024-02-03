@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx23uyyh7npy3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4nur"]
+size = Vector3(1, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxi4n"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6grf"]
+material = SubResource("StandardMaterial3D_vxi4n")
+size = Vector3(1, 1, 5)
+
+[node name="GenderuwoWarning" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="Attack" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3)
+shape = SubResource("BoxShape3D_g4nur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/Attack"]
+mesh = SubResource("BoxMesh_d6grf")

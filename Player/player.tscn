@@ -14,11 +14,11 @@ height = 1.0
 radius = 0.25
 height = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7iws"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoa22"]
 albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v37d0"]
-material = SubResource("StandardMaterial3D_q7iws")
+material = SubResource("StandardMaterial3D_yoa22")
 size = Vector3(0.285, 0.1, 0.125)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bobyk"]
