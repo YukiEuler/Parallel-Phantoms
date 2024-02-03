@@ -14,25 +14,25 @@ height = 1.0
 radius = 0.25
 height = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoa22"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqaha"]
 albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v37d0"]
-material = SubResource("StandardMaterial3D_yoa22")
+material = SubResource("StandardMaterial3D_bqaha")
 size = Vector3(0.285, 0.1, 0.125)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bobyk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2unc"]
 albedo_color = Color(0.952941, 0.458824, 0.643137, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g1drq"]
-material = SubResource("StandardMaterial3D_bobyk")
+material = SubResource("StandardMaterial3D_t2unc")
 size = Vector3(0.03, 0.46, 0.07)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rg2l8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uigw"]
 albedo_color = Color(0.67451, 0.407843, 0.278431, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tfwcm"]
-material = SubResource("StandardMaterial3D_rg2l8")
+material = SubResource("StandardMaterial3D_8uigw")
 top_radius = 0.25
 bottom_radius = 0.25
 height = 0.07

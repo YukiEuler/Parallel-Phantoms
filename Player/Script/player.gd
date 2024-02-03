@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var health = 100
+var health = 3
 var SPEED = 0.0
 
 var off_menu: bool = true

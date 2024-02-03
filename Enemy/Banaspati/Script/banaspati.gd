@@ -11,6 +11,7 @@ const ANGULAR_MOVEMENT = 10
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var tick = 100
+var knock_time = 0
 var input_dir
 var direction
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmp6j5bgsekgq"]
+
+[ext_resource type="Script" path="res://Enemy/Boss/Script/Projectile.gd" id="1_ab0dt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_87xqg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra0no"]
+albedo_color = Color(0.207843, 0.415686, 0.913725, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mhao6"]
+material = SubResource("StandardMaterial3D_ra0no")
+
+[node name="Projectile" type="CharacterBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.3, 0)
+script = ExtResource("1_ab0dt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_87xqg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("SphereMesh_mhao6")

@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://cb2g8u34mqmwa"]
+
+[ext_resource type="Script" path="res://Enemy/Boss/Script/Boss.gd" id="1_5fjvv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lyxrw"]
+radius = 0.269905
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ch61w"]
+albedo_color = Color(0.898039, 0.309804, 0.756863, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qcpg6"]
+material = SubResource("StandardMaterial3D_ch61w")
+radius = 0.25
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoa22"]
+albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5rhbt"]
+material = SubResource("StandardMaterial3D_yoa22")
+size = Vector3(0.285, 0.1, 0.125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bobyk"]
+albedo_color = Color(0.952941, 0.458824, 0.643137, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ekgx6"]
+material = SubResource("StandardMaterial3D_bobyk")
+size = Vector3(0.03, 0.46, 0.07)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm08t"]
+size = Vector3(0.515, 0.425, 0.382324)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f2u80"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hd8eg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_edsn1"]
+radius = 0.273244
+height = 1.0
+
+[node name="Boss" type="CharacterBody3D"]
+script = ExtResource("1_5fjvv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_lyxrw")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="BodyMeshDebug" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_qcpg6")
+skeleton = NodePath("../..")
+
+[node name="Eye" type="MeshInstance3D" parent="Model/BodyMeshDebug"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202, 0.209625)
+mesh = SubResource("BoxMesh_5rhbt")
+
+[node name="Hand" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.171114)
+
+[node name="RightHandModel" type="Node3D" parent="Model/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224346, 0.529966, 0.0809023)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model/Hand/RightHandModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0327438, 0.231954, -0.0202996)
+mesh = SubResource("BoxMesh_ekgx6")
+
+[node name="AttackArea" type="Area3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.630191, 0.651983)
+visible = false
+wind_force_magnitude = 4.848
+wind_attenuation_factor = 1.545
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.122538)
+shape = SubResource("BoxShape3D_pm08t")
+disabled = true
+
+[node name="ProjectileRange" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ProjectileRange"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+shape = SubResource("SphereShape3D_f2u80")
+
+[node name="MeeleAttack" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/MeeleAttack"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+shape = SubResource("SphereShape3D_hd8eg")
+
+[node name="Area3D" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_edsn1")
+
+[connection signal="body_entered" from="Model/ProjectileRange" to="." method="_on_projectile_range"]
+[connection signal="body_exited" from="Model/ProjectileRange" to="." method="_out_projectile_range"]
+[connection signal="body_entered" from="Model/MeeleAttack" to="." method="_on_meele_range"]
+[connection signal="body_exited" from="Model/MeeleAttack" to="." method="_out_meele_range"]
+[connection signal="body_entered" from="Model/Area3D" to="." method="_on_player_body_entered"]

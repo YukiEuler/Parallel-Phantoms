@@ -14,6 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var tick = 100
 var input_dir
 var direction
+var knock_time = 0
 var player_body = null
 
 @onready var player = get_tree().root.find_child("Player", true, false)

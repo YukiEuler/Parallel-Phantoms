@@ -12,6 +12,7 @@ const ANGULAR_MOVEMENT = 10
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var tick = 100
+var knock_time = 0
 var input_dir
 var direction
 var distance
@@ -45,7 +46,6 @@ func _physics_process(delta):
 		direction = position.direction_to(player_body.position)
 		if not angle_before:
 			angle_before = atan2(direction.x, direction.z)
-		print(angle_before)
 		var temp = (self.position.x-player_body.position.x)**2 + (self.position.z-player_body.position.z)**2
 		if (temp < distance and pos_before != player_body.position) or (abs(angle_before-atan2(direction.x, direction.z)) >= 0.1 and abs(temp-distance) < 0.5):
 			direction *= -1
