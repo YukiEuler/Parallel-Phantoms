@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwf6x0rm1yrkv"]
+[gd_scene load_steps=13 format=3 uid="uid://bwf6x0rm1yrkv"]
 
 [ext_resource type="PackedScene" uid="uid://b3chy44tomj1i" path="res://Interactible/test/DamageTest/damage_test.tscn" id="1_485xg"]
 [ext_resource type="PackedScene" uid="uid://oe0gp1n534l1" path="res://Enemy/EnemyTestDummy/enemy_test_dummy.tscn" id="1_bagyf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgthpdqxdgnut" path="res://Enemy/Banaspati/banaspati.tscn" id="2_ximn5"]
 [ext_resource type="PackedScene" uid="uid://bjnbuhyp5l4ic" path="res://Enemy/Genderuwo/Genderuwo.tscn" id="3_kcfg5"]
 [ext_resource type="PackedScene" uid="uid://blywdv4ohek8j" path="res://Enemy/Kuntilanak/Kuntilanak.tscn" id="3_uhuy1"]
+[ext_resource type="PackedScene" uid="uid://b7wueb6vss3uj" path="res://Enemy/Tuyul/Tuyul.tscn" id="4_v7pco"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlthg"]
 albedo_color = Color(0.262745, 0.262745, 0.262745, 1)
@@ -45,6 +46,9 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2, 0.7, -5)
 
 [node name="Genderuwo" parent="." groups=["Enemy"] instance=ExtResource("3_kcfg5")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5, 0.5, 0)
+
+[node name="Tuyul" parent="." groups=["Enemy"] instance=ExtResource("4_v7pco")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5, 0.5, -1)
 
 [node name="Kuntilanak" parent="." groups=["Enemy"] instance=ExtResource("3_uhuy1")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, -7)

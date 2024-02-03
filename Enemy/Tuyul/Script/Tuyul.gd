@@ -14,6 +14,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var tick = 100
 var input_dir
 var direction
+var distance
+var pos_before
+var angle_before
 var player_body = null
 
 @onready var player = get_tree().root.find_child("Player", true, false)
@@ -33,9 +36,22 @@ func _process(delta):
 func _physics_process(delta):
 	if player.off_menu:
 		pass
+		
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+		
 	if player_body:
 		SPEED = CHASE_SPEED
 		direction = position.direction_to(player_body.position)
+		if not angle_before:
+			angle_before = atan2(direction.x, direction.z)
+		print(angle_before)
+		var temp = (self.position.x-player_body.position.x)**2 + (self.position.z-player_body.position.z)**2
+		if (temp < distance and pos_before != player_body.position) or (abs(angle_before-atan2(direction.x, direction.z)) >= 0.1 and abs(temp-distance) < 0.5):
+			direction *= -1
+		pos_before = player_body.position
+		angle_before = atan2(direction.x, direction.z)
+		distance = temp
 	else:
 		if tick == 100:
 			input_dir = Vector3(randf_range(-1, 1), randf_range(-1, 1) , randf_range(-1, 1))
@@ -74,7 +90,10 @@ func _on_player_body_entered(body):
 func _is_chase_player(body):
 	if body.is_in_group("Player"):
 		player_body = body
-		
+		distance = (self.position.x-body.position.x)**2 + (self.position.z-body.position.z)**2
+		pos_before = body.position
+		angle_before = null
+			
 func _is_not_chase_player(body):
 	if body.is_in_group("Player"):
 		SPEED = STOP_SPEED

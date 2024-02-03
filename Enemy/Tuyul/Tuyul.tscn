@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7wueb6vss3uj"]
+[gd_scene load_steps=9 format=3 uid="uid://b7wueb6vss3uj"]
+
+[ext_resource type="Script" path="res://Enemy/Tuyul/Script/Tuyul.gd" id="1_erlbt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ebuwd"]
 
@@ -20,6 +22,8 @@ material = SubResource("StandardMaterial3D_w6ymn")
 size = Vector3(0.285, 0.1, 0.125)
 
 [node name="Tuyul" type="CharacterBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_erlbt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ebuwd")
@@ -37,9 +41,13 @@ shape = SubResource("CapsuleShape3D_ft4fs")
 [node name="Chase" type="Area3D" parent="Model"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Chase"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 shape = SubResource("SphereShape3D_ry4yj")
 
 [node name="Eye" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041509, 0.39815, 0.437384)
 mesh = SubResource("BoxMesh_1a50l")
+
+[connection signal="body_entered" from="Model/Area3D" to="." method="_on_player_body_entered"]
+[connection signal="body_entered" from="Model/Chase" to="." method="_is_chase_player"]
+[connection signal="body_exited" from="Model/Chase" to="." method="_is_not_chase_player"]

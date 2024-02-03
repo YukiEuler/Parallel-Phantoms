@@ -4,11 +4,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kmtc5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avy0h"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyp3s"]
 albedo_color = Color(0.14902, 0, 0.647059, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kf717"]
-material = SubResource("StandardMaterial3D_avy0h")
+material = SubResource("StandardMaterial3D_hyp3s")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c2r0c"]
 radius = 0.529632
@@ -16,11 +16,11 @@ radius = 0.529632
 [sub_resource type="SphereShape3D" id="SphereShape3D_kf55i"]
 radius = 1.00655
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5fq3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kue3"]
 albedo_color = Color(0.207843, 0.207843, 0.207843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aipft"]
-material = SubResource("StandardMaterial3D_t5fq3")
+material = SubResource("StandardMaterial3D_2kue3")
 size = Vector3(0.285, 0.1, 0.125)
 
 [node name="Kuntilanak" type="CharacterBody3D"]
